@@ -12,6 +12,8 @@
             int[] mas = new int[20];        // массив случайных чисел
             int[] uniqMas = new int[20];    // массив уникальных случайных чисел
 
+            Console.WriteLine("Уникальные элементы массива:");
+
             bool elemIsZero = true;     // елем. является ли 0
             for (int i = 0; i < mas.Length; i++)
             {
