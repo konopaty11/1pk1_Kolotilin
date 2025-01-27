@@ -14,20 +14,24 @@
             int n = int.Parse(Console.ReadLine());
 
             Random rnd = new Random();
-            int[,] matric = new int[n, n];
-            int[] maxElems = new int[5];
+            int[,] matric = new int[n, n];      // матрица n * n
+            int[] maxElems = new int[5];        // массив 5 максимальных элементов
             int minElem = 99;
 
+            // заполенение матрицы
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
                     matric[i, j] = rnd.Next(10, 100);
+
+                    // поиск минимального элемента
                     if (matric[i, j] < minElem)
                         minElem = matric[i, j];
                 }
             }
 
+            // вывод мин. элемента и умножение матрицы на него
             Console.WriteLine($"\n{minElem} - Минимальный элемент матрицы");
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
@@ -35,13 +39,14 @@
                     matric[i, j] *= minElem;
                 }
 
-            Console.WriteLine();
+            // заполнение массива макс. элементов
             for (int i = 0; i < 5; i++)
             {
                 foreach(int elem in matric)
                 {
                     if (maxElems[i] < elem)
                     {
+                        // если такой элемент уже записан в массив пропускать итерацию
                         if (i >= 1 && elem >= maxElems[i - 1])
                             continue;
 
@@ -50,11 +55,13 @@
                 }
             }
 
-            
+            // вывод
+            Console.WriteLine();
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
+                    // если элемент входит в 5 по максимальности подсвечивать консоль
                     foreach (int elem in maxElems)
                         if (matric[i, j] == elem)
                             Console.BackgroundColor = ConsoleColor.DarkRed;
