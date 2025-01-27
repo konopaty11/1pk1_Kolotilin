@@ -15,29 +15,52 @@
 
             Random rnd = new Random();
             int[,] matric = new int[n, n];
-            int[] maxElem = new int[n * n];
+            int[] maxElems = new int[5];
             int minElem = 99;
 
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    matric[i, j] = rnd.Next(-99, 100);
+                    matric[i, j] = rnd.Next(10, 100);
                     if (matric[i, j] < minElem)
                         minElem = matric[i, j];
                 }
             }
-            Console.WriteLine($"{minElem} - Минимальный элемент матрицы");
 
+            Console.WriteLine($"\n{minElem} - Минимальный элемент матрицы");
             for (int i = 0; i < n; i++)
-                for(int j = 0; j < n; j++)
+                for (int j = 0; j < n; j++)
+                {
                     matric[i, j] *= minElem;
+                }
+
+            Console.WriteLine();
+            for (int i = 0; i < 5; i++)
+            {
+                foreach(int elem in matric)
+                {
+                    if (maxElems[i] < elem)
+                    {
+                        if (i >= 1 && elem >= maxElems[i - 1])
+                            continue;
+
+                        maxElems[i] = elem;
+                    }
+                }
+            }
+
             
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
+                    foreach (int elem in maxElems)
+                        if (matric[i, j] == elem)
+                            Console.BackgroundColor = ConsoleColor.DarkRed;
+
                     Console.Write($"{matric[i, j]} ");
+                    Console.BackgroundColor = ConsoleColor.Black;
                 }
                 Console.WriteLine();
             }
