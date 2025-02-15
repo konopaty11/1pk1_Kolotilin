@@ -13,7 +13,7 @@
             Console.Write("Введите число b >> ");
             double b = Convert.ToDouble(Console.ReadLine());
 
-            double sum, multy;
+            double sum, multy;  // сумма, произведение
 
             SummAndMulty(ref a, ref b, out sum, out multy);
 
