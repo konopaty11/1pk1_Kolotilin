@@ -21,7 +21,7 @@
                 n = double.Parse(Console.ReadLine());
             }
 
-            Console.WriteLine(GetAVG(nums));
+            Console.WriteLine($"Среднее значение последовательности чисел: {GetAVG(nums)}");
             
         }
 
