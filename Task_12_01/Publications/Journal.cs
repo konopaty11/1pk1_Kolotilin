@@ -15,6 +15,10 @@ namespace Task_12_01.Publications
         public int price;
         private bool isBuy = false; // куплен ли журнал
 
+        /// <summary>
+        /// выводит сообщение о приобртении журнала 
+        /// если это возможно
+        /// </summary>
         public void BuyJournal()
         {
             if (isBuy) Console.WriteLine($"Журнал: {title} уже приобретён");
@@ -25,6 +29,9 @@ namespace Task_12_01.Publications
             }
         }
 
+        /// <summary>
+        /// выводит информацию о прочитанном журнале
+        /// </summary>
         public void ReadingJournal()
         {
             Console.WriteLine($"Вы прочитали журнал:{title} \nВыпуска: {date} \nТематика:{theme} \nОбъёмом {countOfPages} страниц");

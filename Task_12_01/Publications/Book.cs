@@ -31,6 +31,10 @@ namespace Task_12_01.Publications
             }
         }
 
+        /// <summary>
+        /// выводит сообщение о сдачи книги
+        /// если это невозможно выводит обратное
+        /// </summary>
         public void ReturnBook()
         {
             if (isReading)
