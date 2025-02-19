@@ -67,9 +67,17 @@ namespace Task_12_01
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\n\tКласс Newspaper\n");
 
-            Newspaper newspaper = new Newspaper() { date = "30.07.2002", header = "Конец света?", title = "Правдивые новости", countOfPages = 10, price = 100 };  
+            Newspaper newspaper = new Newspaper() { date = "30.07.2002", header = "Конец света?", title = "Правдивые новости", countOfPages = 10, price = 100 };
 
-            newspaper.getInfo();
+            Console.WriteLine("Прочтение газеты");
+            newspaper.Reading();
+
+            Console.WriteLine("\nУничтожение газеты");
+            newspaper.Terminate();
+
+            Console.WriteLine("\nПовторное использование газеты");
+            newspaper.Reading();
+
             Console.ForegroundColor = ConsoleColor.White;
         }
     }

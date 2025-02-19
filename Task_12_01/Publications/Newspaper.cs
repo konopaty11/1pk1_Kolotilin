@@ -13,11 +13,28 @@ namespace Task_12_01.Publications
         public string title;
         public int countOfPages;
         public int price;
+        private bool isTerminate = false;
 
-        public void getInfo()
+        /// <summary>
+        /// выводит значения полей газеты
+        /// </summary>
+        public void Reading()
         {
-            Console.WriteLine("Создан экземпляр класса Newapaper");
-            Console.WriteLine($"Дата издания: {date} \nзаголовок: {header} \nназвание: {title} \nкол-во страниц: {countOfPages} \nцена: {price}");
+            if (isTerminate) Console.WriteLine($"Неудаётся найти газету: {title}");
+            else Console.WriteLine($"Дата издания: {date} \nзаголовок: {header} \nназвание: {title} \nкол-во страниц: {countOfPages} \nцена: {price}");
+        }
+
+        /// <summary>
+        /// уничтожает газету
+        /// </summary>
+        public void Terminate()
+        {
+            if (isTerminate) Console.WriteLine($"Газета: {title} уже уничтожена");
+            else
+            {
+                isTerminate = true;
+                Console.WriteLine($"Газета {title} была использована в хозяйственных нуждах");
+            }
         }
     }
 }
